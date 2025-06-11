@@ -1,0 +1,22 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "Common utilities shared across services in the A2 Execution Engine.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src/**/*.js"
+  },
+  "keywords": [
+    "common",
+    "utilities",
+    "a2-execution-engine"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "eslint": "^7.0.0"
+  }
+}

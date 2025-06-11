@@ -1,0 +1,24 @@
+{
+  "name": "mgtl-plus",
+  "version": "1.0.0",
+  "description": "Management Goal Translation Layer+ service",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "lint": "eslint src/**/*.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.0",
+    "eslint": "^7.14.0",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

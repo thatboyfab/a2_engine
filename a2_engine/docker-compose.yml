@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mgtl-plus:
+    build:
+      context: ./services/mgtl-plus
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    depends_on:
+      - role-registry
+      - swarm-manager
+      - resource-allocator
+      - execution-engine
+      - feedback-engine
+
+  role-registry:
+    build:
+      context: ./services/role-registry
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+
+  swarm-manager:
+    build:
+      context: ./services/swarm-manager
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3000"
+
+  resource-allocator:
+    build:
+      context: ./services/resource-allocator
+      dockerfile: Dockerfile
+    ports:
+      - "3004:3000"
+
+  execution-engine:
+    build:
+      context: ./services/execution-engine
+      dockerfile: Dockerfile
+    ports:
+      - "3005:3000"
+
+  feedback-engine:
+    build:
+      context: ./services/feedback-engine
+      dockerfile: Dockerfile
+    ports:
+      - "3006:3000"
+
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,28 @@
+{
+  "name": "shared-libraries",
+  "version": "1.0.0",
+  "description": "Reusable libraries and modules that are common across microservices.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "babel src -d lib",
+    "lint": "eslint src"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "babel-cli": "^6.26.0",
+    "eslint": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/a2_engine.git"
+  },
+  "keywords": [
+    "libraries",
+    "shared",
+    "microservices"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
