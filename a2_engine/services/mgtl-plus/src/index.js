@@ -6,40 +6,59 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-// POST /translate-goal: Translates a high-level goal into a SubGoalEnvelope and sends to Swarm Manager
+const MAX_DEPTH = 3;
+const MIN_BUDGET = 100;
+
+// POST /translate-goal: Translates a high-level goal into one or more SubGoalEnvelopes and sends to Swarm Manager
 app.post('/translate-goal', async (req, res) => {
-    const { goalId, description, depth = 0, budget = 1000, canRecurse = true } = req.body;
-    const subGoalEnvelope = {
-        subGoalId: `SG-${Math.random().toString(36).substr(2, 6)}`,
-        description: description || '',
-        intentTags: req.body.intentTags || [],
-        canRecurse,
-        recursionMeta: {
-            parentGoalId: goalId,
-            depth,
-            maxDepth: 3,
-            costBudgetRemaining: budget
-        },
-        roleAssignment: {
-            roleId: 'ROLE-ANALYST',
-            capability: 'time_series',
-            confidence: 1.0
-        },
-        learningPath: [],
-        traceMeta: {
-            lineage: [goalId],
-            traceId: `TRACE-${Math.random().toString(36).substr(2, 8)}`,
-            timestamp: new Date().toISOString()
-        }
-    };
-    if (!validateSubGoalEnvelope(subGoalEnvelope)) {
-        return res.status(400).json({ error: 'Invalid SubGoalEnvelope' });
+    const { goalId, description, depth = 0, budget = 1000, canRecurse = true, intentTags = [], lineage = [] } = req.body;
+    // Policy enforcement
+    if (depth >= MAX_DEPTH) {
+        return res.status(400).json({ error: 'Max recursion depth reached' });
     }
-    // Stub: send to Swarm Manager (simulate with try/catch)
+    if (budget < MIN_BUDGET) {
+        return res.status(400).json({ error: 'Insufficient budget for recursion' });
+    }
+    // Recursive delegation: create subgoals (simulate with 2 subgoals)
+    const subGoals = [1,2].map(i => {
+        const subGoalId = `SG-${Math.random().toString(36).substr(2, 6)}`;
+        return {
+            subGoalId,
+            description: `${description} (subgoal ${i})`,
+            intentTags,
+            canRecurse,
+            recursionMeta: {
+                parentGoalId: goalId,
+                depth: depth + 1,
+                maxDepth: MAX_DEPTH,
+                costBudgetRemaining: budget / 2
+            },
+            roleAssignment: {
+                roleId: 'ROLE-ANALYST',
+                capability: 'time_series',
+                confidence: 1.0
+            },
+            learningPath: [],
+            traceMeta: {
+                lineage: [...lineage, goalId],
+                traceId: `TRACE-${Math.random().toString(36).substr(2, 8)}`,
+                timestamp: new Date().toISOString()
+            }
+        };
+    });
+    // Validate all subgoals
+    for (const sg of subGoals) {
+        if (!validateSubGoalEnvelope(sg)) {
+            return res.status(400).json({ error: 'Invalid SubGoalEnvelope', subGoal: sg });
+        }
+    }
+    // Real HTTP call to Swarm Manager for each subgoal
     try {
-        // await axios.post('http://swarm-manager:3000/deploy-swarm', { subGoalEnvelope });
-        // For now, just return the envelope
-        res.json({ subGoalEnvelope, status: 'created' });
+        const results = await Promise.all(subGoals.map(async (sg) => {
+            const response = await axios.post('http://swarm-manager:3000/deploy-swarm', { subGoalEnvelope: sg });
+            return response.data;
+        }));
+        res.json({ subGoals, swarmResponses: results, status: 'created', lineage: [...lineage, goalId] });
     } catch (err) {
         res.status(500).json({ error: 'Failed to send to Swarm Manager', details: err.message });
     }
