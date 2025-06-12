@@ -1,7 +1,11 @@
 const express = require('express');
+const { logWithTrace } = require('../../../libs/common/src/index');
 const axios = require('axios');
 const app = express();
 app.use(express.json());
+
+// Health check endpoint
+app.get('/health', (req, res) => res.json({ status: 'ok', service: 'execution-engine' }));
 
 // POST /dispatch: Accepts a SubGoalEnvelope, simulates task execution, and returns status
 app.post('/dispatch', async (req, res) => {
@@ -9,18 +13,22 @@ app.post('/dispatch', async (req, res) => {
     if (!subGoalEnvelope) return res.status(400).json({ error: 'Missing subGoalEnvelope' });
     const taskId = subGoalEnvelope.subGoalId;
     const traceId = subGoalEnvelope.traceMeta.traceId;
-    // Simulate task execution and feedback reporting
     try {
-        // Simulate feedback metrics
+        // Simulate task execution
         const metrics = {
             agentId: 'agent-001',
-            performance: 0.95,
+            performance: Math.random(),
             traceId,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            subGoalComplete: true
         };
-        // await axios.post('http://feedback-engine:3000/feedback', metrics);
-        // For now, just log
-        console.log('Feedback metrics:', metrics);
+        logWithTrace('Task dispatched', traceId, { subGoalEnvelope });
+        // Report audit to Governance Hooks (stub)
+        try {
+            await axios.post('http://governance-hooks:3000/audit', { event: 'dispatch', traceId, subGoalEnvelope });
+        } catch (e) { /* ignore for now */ }
+        // Send feedback to Feedback Engine
+        await axios.post('http://feedback-engine:3000/feedback', metrics);
         res.json({ taskId, status: 'dispatched', traceId, lineage: subGoalEnvelope.traceMeta.lineage });
     } catch (err) {
         res.status(500).json({ error: 'Failed to report feedback', details: err.message });

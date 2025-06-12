@@ -23,6 +23,9 @@ app.get('/capabilities/:capability', (req, res) => {
     res.json({ capability: cap, ...capabilityMap[cap] });
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => res.json({ status: 'ok', service: 'capability-registry' }));
+
 app.listen(3000, () => {
     console.log('Capability Registry service running on port 3000');
 });

@@ -2,12 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { SubGoalEnvelopeSchema, validateSubGoalEnvelope } = require('../../../libs/shared-libraries/src/subgoalEnvelope');
 const axios = require('axios');
+const { createTraceId, logWithTrace } = require('../../../libs/common/src/index');
 
 const app = express();
 app.use(bodyParser.json());
 
 const MAX_DEPTH = 3;
 const MIN_BUDGET = 100;
+
+// Health check endpoint
+app.get('/health', (req, res) => res.json({ status: 'ok', service: 'mgtl-plus' }));
+
+// Add capability/role check before subgoal creation
+const allowedCapabilities = ['time_series', 'data_ingest']; // In real use, fetch from Capability Registry
+const allowedRoles = ['ROLE-ANALYST', 'ROLE-DATA-GATHERER'];
 
 // POST /translate-goal: Translates a high-level goal into one or more SubGoalEnvelopes and sends to Swarm Manager
 app.post('/translate-goal', async (req, res) => {
@@ -22,6 +30,7 @@ app.post('/translate-goal', async (req, res) => {
     // Recursive delegation: create subgoals (simulate with 2 subgoals)
     const subGoals = [1,2].map(i => {
         const subGoalId = `SG-${Math.random().toString(36).substr(2, 6)}`;
+        const traceId = createTraceId();
         return {
             subGoalId,
             description: `${description} (subgoal ${i})`,
@@ -41,7 +50,7 @@ app.post('/translate-goal', async (req, res) => {
             learningPath: [],
             traceMeta: {
                 lineage: [...lineage, goalId],
-                traceId: `TRACE-${Math.random().toString(36).substr(2, 8)}`,
+                traceId,
                 timestamp: new Date().toISOString()
             }
         };
@@ -52,6 +61,14 @@ app.post('/translate-goal', async (req, res) => {
             return res.status(400).json({ error: 'Invalid SubGoalEnvelope', subGoal: sg });
         }
     }
+    // Enforce role/capability check
+    for (const sg of subGoals) {
+        if (!allowedCapabilities.includes(sg.roleAssignment.capability) || !allowedRoles.includes(sg.roleAssignment.roleId)) {
+            return res.status(400).json({ error: 'Role or capability not allowed', subGoal: sg });
+        }
+    }
+    // Log the creation of subgoals
+    logWithTrace('Created subgoals', subGoals[0].traceMeta.traceId, { subGoals });
     // Real HTTP call to Swarm Manager for each subgoal
     try {
         const results = await Promise.all(subGoals.map(async (sg) => {

@@ -1,10 +1,18 @@
 const express = require('express');
 const axios = require('axios');
+const { logWithTrace } = require('../../../libs/common/src/index');
 const app = express();
 app.use(express.json());
 
 const MAX_DEPTH = 3;
 const MIN_BUDGET = 100;
+
+// Health check endpoint
+app.get('/health', (req, res) => res.json({ status: 'ok', service: 'swarm-manager' }));
+
+// Add capability/role check before swarm assignment
+const allowedCapabilities = ['time_series', 'data_ingest']; // In real use, fetch from Capability Registry
+const allowedRoles = ['ROLE-ANALYST', 'ROLE-DATA-GATHERER'];
 
 // POST /deploy-swarm: Accepts a SubGoalEnvelope, enforces policy, and calls Execution Engine
 app.post('/deploy-swarm', async (req, res) => {
@@ -17,7 +25,12 @@ app.post('/deploy-swarm', async (req, res) => {
     if (subGoalEnvelope.recursionMeta.costBudgetRemaining < MIN_BUDGET) {
         return res.status(400).json({ error: 'Insufficient budget' });
     }
+    // Enforce role/capability check
+    if (!allowedCapabilities.includes(subGoalEnvelope.roleAssignment.capability) || !allowedRoles.includes(subGoalEnvelope.roleAssignment.roleId)) {
+        return res.status(400).json({ error: 'Role or capability not allowed', subGoalEnvelope });
+    }
     const traceId = subGoalEnvelope.traceMeta.traceId;
+    logWithTrace('Deploying swarm', traceId, { subGoalEnvelope });
     try {
         // Real HTTP call to Execution Engine
         const execRes = await axios.post('http://execution-engine:3000/dispatch', { subGoalEnvelope });

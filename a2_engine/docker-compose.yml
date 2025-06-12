@@ -13,6 +13,11 @@ services:
       - resource-allocator
       - execution-engine
       - feedback-engine
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   role-registry:
     build:
@@ -20,6 +25,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3002:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   swarm-manager:
     build:
@@ -27,6 +37,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3003:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   resource-allocator:
     build:
@@ -34,6 +49,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3004:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   execution-engine:
     build:
@@ -41,6 +61,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3005:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   feedback-engine:
     build:
@@ -48,6 +73,47 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3006:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  capability-registry:
+    build:
+      context: ./services/capability-registry
+      dockerfile: Dockerfile
+    ports:
+      - "3007:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  objective-hub:
+    build:
+      context: ./services/objective-hub
+      dockerfile: Dockerfile
+    ports:
+      - "3008:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  governance-hooks:
+    build:
+      context: ./services/governance-hooks
+      dockerfile: Dockerfile
+    ports:
+      - "3009:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 networks:
   default:

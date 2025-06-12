@@ -18,6 +18,9 @@ app.post('/goals', (req, res) => {
     res.json({ normalizedGoal, status: 'received' });
 });
 
+// GET /health: Health check endpoint
+app.get('/health', (req, res) => res.json({ status: 'ok', service: 'objective-hub' }));
+
 app.listen(3000, () => {
     console.log('Objective Hub service running on port 3000');
 });
