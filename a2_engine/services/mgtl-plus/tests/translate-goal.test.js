@@ -17,3 +17,18 @@ describe('POST /translate-goal', () => {
     expect(validateSubGoalEnvelope(response.body.subGoalEnvelope)).toBe(true);
   });
 });
+
+describe('Policy enforcement', () => {
+  it('should reject if max recursion depth is reached', async () => {
+    const goal = { goalId: 'MG-002', description: 'Deep goal', depth: 3, budget: 1000 };
+    const response = await request(app).post('/translate-goal').send(goal);
+    expect(response.statusCode).toBe(400);
+    expect(response.body.error).toMatch(/max recursion depth/i);
+  });
+  it('should reject if budget is too low', async () => {
+    const goal = { goalId: 'MG-003', description: 'Low budget', depth: 0, budget: 50 };
+    const response = await request(app).post('/translate-goal').send(goal);
+    expect(response.statusCode).toBe(400);
+    expect(response.body.error).toMatch(/insufficient budget/i);
+  });
+});

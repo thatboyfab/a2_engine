@@ -16,6 +16,10 @@ const feedbackSchema = new mongoose.Schema({
 });
 const Feedback = mongoose.model('Feedback', feedbackSchema);
 
+// Environment variables for Governance Hooks and MGTL+ URLs
+const GOVERNANCE_HOOKS_URL = process.env.GOVERNANCE_HOOKS_URL || 'http://governance-hooks:3000';
+const MGTL_PLUS_URL = process.env.MGTL_PLUS_URL || 'http://mgtl-plus:3000';
+
 // POST /feedback: Submit feedback and trigger replanning if needed
 app.post('/feedback', async (req, res) => {
     const feedback = new Feedback(req.body);
@@ -23,11 +27,11 @@ app.post('/feedback', async (req, res) => {
     logWithTrace('Feedback received', feedback.traceId || 'NO-TRACE', feedback);
     // Report audit to Governance Hooks (stub)
     try {
-        await axios.post('http://governance-hooks:3000/audit', feedback);
+        await axios.post(`${GOVERNANCE_HOOKS_URL}/audit`, feedback);
     } catch (e) { /* ignore for now */ }
     // If anomaly detected, trigger replanning (stub)
     if (feedback.performance < 0.5) {
-        // await axios.post('http://mgtl-plus:3000/translate-goal', { ... });
+        // await axios.post(`${MGTL_PLUS_URL}/translate-goal`, { ... });
         logWithTrace('Anomaly detected, replanning triggered', feedback.traceId || 'NO-TRACE', feedback);
     }
     res.status(201).json(feedback);

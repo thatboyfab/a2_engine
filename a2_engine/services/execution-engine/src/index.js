@@ -4,6 +4,9 @@ const axios = require('axios');
 const app = express();
 app.use(express.json());
 
+const FEEDBACK_ENGINE_URL = process.env.FEEDBACK_ENGINE_URL || 'http://feedback-engine:3000';
+const GOVERNANCE_HOOKS_URL = process.env.GOVERNANCE_HOOKS_URL || 'http://governance-hooks:3000';
+
 // Health check endpoint
 app.get('/health', (req, res) => res.json({ status: 'ok', service: 'execution-engine' }));
 
@@ -25,10 +28,10 @@ app.post('/dispatch', async (req, res) => {
         logWithTrace('Task dispatched', traceId, { subGoalEnvelope });
         // Report audit to Governance Hooks (stub)
         try {
-            await axios.post('http://governance-hooks:3000/audit', { event: 'dispatch', traceId, subGoalEnvelope });
+            await axios.post(`${GOVERNANCE_HOOKS_URL}/audit`, { event: 'dispatch', traceId, subGoalEnvelope });
         } catch (e) { /* ignore for now */ }
         // Send feedback to Feedback Engine
-        await axios.post('http://feedback-engine:3000/feedback', metrics);
+        await axios.post(`${FEEDBACK_ENGINE_URL}/feedback`, metrics);
         res.json({ taskId, status: 'dispatched', traceId, lineage: subGoalEnvelope.traceMeta.lineage });
     } catch (err) {
         res.status(500).json({ error: 'Failed to report feedback', details: err.message });

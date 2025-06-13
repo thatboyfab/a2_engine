@@ -6,6 +6,7 @@ app.use(express.json());
 
 const MAX_DEPTH = 3;
 const MIN_BUDGET = 100;
+const EXEC_ENGINE_URL = process.env.EXEC_ENGINE_URL || 'http://execution-engine:3000';
 
 // Health check endpoint
 app.get('/health', (req, res) => res.json({ status: 'ok', service: 'swarm-manager' }));
@@ -32,8 +33,8 @@ app.post('/deploy-swarm', async (req, res) => {
     const traceId = subGoalEnvelope.traceMeta.traceId;
     logWithTrace('Deploying swarm', traceId, { subGoalEnvelope });
     try {
-        // Real HTTP call to Execution Engine
-        const execRes = await axios.post('http://execution-engine:3000/dispatch', { subGoalEnvelope });
+        // Use environment variable for Execution Engine URL
+        const execRes = await axios.post(`${EXEC_ENGINE_URL}/dispatch`, { subGoalEnvelope });
         res.json({ swarmId: `swarm-${Math.random().toString(36).substr(2, 6)}`, assigned: true, traceId, lineage: subGoalEnvelope.traceMeta.lineage, execution: execRes.data });
     } catch (err) {
         res.status(500).json({ error: 'Failed to dispatch to Execution Engine', details: err.message });
