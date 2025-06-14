@@ -2,7 +2,7 @@ build:
 	docker-compose build
 
 test:
-	for d in services/* libs/*; do \
+	for d in ./services/* ./libs/*; do \
 		if [ -f $$d/package.json ]; then \
 			cd $$d && npm test || exit 1; \
 			cd - > /dev/null; \
@@ -10,7 +10,7 @@ test:
 	done
 
 lint:
-	for d in services/* libs/*; do \
+	for d in ./services/* ./libs/*; do \
 		if [ -f $$d/package.json ]; then \
 			cd $$d && npm run lint || exit 1; \
 			cd - > /dev/null; \
