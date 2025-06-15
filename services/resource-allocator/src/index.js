@@ -1,17 +1,21 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+const { allocateResource, listAllocations } = require('./allocator');
 
 // POST /allocate: Allocate resources to a task
 app.post('/allocate', (req, res) => {
-    // TODO: Implement resource allocation logic
-    res.json({ allocationId: 'alloc-123', status: 'allocated' });
+    const { agentId, resourceType, amountRequested, priority } = req.body;
+    const result = allocateResource(agentId, resourceType, amountRequested, priority);
+    if (result.error) {
+        return res.status(400).json({ error: result.error });
+    }
+    res.json(result);
 });
 
 // GET /allocations: List all allocations
 app.get('/allocations', (req, res) => {
-    // TODO: Return list of allocations
-    res.json([]);
+    res.json(listAllocations());
 });
 
 // GET /health: Health check endpoint

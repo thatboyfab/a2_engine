@@ -1,6 +1,7 @@
 const express = require('express');
 const { logWithTrace } = require('../../../libs/common/src/index');
 const axios = require('axios');
+const { addTask, listTasks } = require('./taskStore');
 const app = express();
 app.use(express.json());
 
@@ -26,6 +27,13 @@ app.post('/dispatch', async (req, res) => {
             subGoalComplete: true
         };
         logWithTrace('Task dispatched', traceId, { subGoalEnvelope });
+        // Add task to in-memory store
+        addTask({
+            taskId,
+            subGoalEnvelope,
+            status: 'dispatched',
+            dispatchedAt: new Date().toISOString()
+        });
         // Report audit to Governance Hooks (stub)
         try {
             await axios.post(`${GOVERNANCE_HOOKS_URL}/audit`, { event: 'dispatch', traceId, subGoalEnvelope });
@@ -42,8 +50,7 @@ app.post('/dispatch', async (req, res) => {
 
 // GET /tasks: List all tasks
 app.get('/tasks', (req, res) => {
-    // TODO: Return list of tasks
-    res.json([]);
+    res.json(listTasks());
 });
 
 if (require.main === module) {

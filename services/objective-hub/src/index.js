@@ -1,21 +1,21 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+const { normalizeAndValidateGoal, registerObjective, listObjectives } = require('./objectiveStore');
 
 // POST /goals: Intake and normalize a mission goal
 app.post('/goals', (req, res) => {
-    // TODO: Normalize and validate the incoming goal
-    const { goalId, description, depth = 0, budget = 1000, canRecurse = true } = req.body;
-    // Attach lineage if spawned recursively
-    const normalizedGoal = {
-        goalId,
-        description,
-        depth,
-        budget,
-        canRecurse,
-        lineage: req.body.lineage || [goalId]
-    };
-    res.json({ normalizedGoal, status: 'received' });
+    const normalized = normalizeAndValidateGoal(req.body);
+    if (normalized.error) {
+        return res.status(400).json({ error: normalized.error });
+    }
+    registerObjective(normalized);
+    res.json({ normalizedGoal: normalized, status: 'received' });
+});
+
+// GET /objectives: List all objectives
+app.get('/objectives', (req, res) => {
+    res.json(listObjectives());
 });
 
 // GET /health: Health check endpoint
