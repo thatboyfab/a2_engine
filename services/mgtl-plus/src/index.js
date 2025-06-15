@@ -81,9 +81,11 @@ app.post('/translate-goal', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('MGTL+ service running on port 3000');
-});
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('MGTL+ service running on port 3000');
+    });
+}
 
 // Export for testing
 module.exports = app;

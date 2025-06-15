@@ -47,9 +47,11 @@ app.get('/swarms', (req, res) => {
     res.json([]);
 });
 
-app.listen(3000, () => {
-    console.log('Swarm Manager service running on port 3000');
-});
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('Swarm Manager service running on port 3000');
+    });
+}
 
 // Export for testing
 module.exports = app;

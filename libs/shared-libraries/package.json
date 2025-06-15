@@ -10,7 +10,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jest": "^27.0.0",
     "babel-cli": "^6.26.0",
     "eslint": "^7.0.0"
   },

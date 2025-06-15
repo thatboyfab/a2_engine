@@ -21,9 +21,11 @@ app.post('/goals', (req, res) => {
 // GET /health: Health check endpoint
 app.get('/health', (req, res) => res.json({ status: 'ok', service: 'objective-hub' }));
 
-app.listen(3000, () => {
-    console.log('Objective Hub service running on port 3000');
-});
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('Objective Hub service running on port 3000');
+    });
+}
 
 // Export for testing
 module.exports = app;

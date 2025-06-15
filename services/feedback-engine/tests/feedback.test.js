@@ -1,5 +1,23 @@
 const request = require('supertest');
 const express = require('express');
+
+jest.mock('mongoose', () => {
+  const actual = jest.requireActual('mongoose');
+  return {
+    ...actual,
+    connect: jest.fn(() => Promise.resolve()),
+    model: jest.fn(() => {
+      return function(data) {
+        return {
+          ...data,
+          save: jest.fn().mockResolvedValue({ ...data })
+        };
+      };
+    })
+  };
+});
+jest.mock('axios', () => ({ post: jest.fn(() => Promise.resolve({ data: {} })) }));
+
 const app = require('../src/index');
 
 describe('POST /feedback', () => {

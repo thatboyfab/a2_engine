@@ -1,6 +1,9 @@
 const request = require('supertest');
 const express = require('express');
 const app = require('../src/index');
+const axios = require('axios');
+
+jest.mock('axios');
 
 describe('POST /deploy-swarm', () => {
   it('should accept a SubGoalEnvelope and return a swarm assignment', async () => {
@@ -27,6 +30,7 @@ describe('POST /deploy-swarm', () => {
         timestamp: new Date().toISOString()
       }
     };
+    axios.post.mockResolvedValueOnce({ data: { status: 'dispatched', taskId: 'SG-001', traceId: 'TRACE-001', lineage: ['MG-001'] } });
     const response = await request(app)
       .post('/deploy-swarm')
       .send({ subGoalEnvelope });

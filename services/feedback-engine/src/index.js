@@ -46,6 +46,10 @@ app.get('/feedback', async (req, res) => {
 // Health check endpoint
 app.get('/health', (req, res) => res.json({ status: 'ok', service: 'feedback-engine' }));
 
-app.listen(3000, () => {
-    console.log('Feedback Engine service running on port 3000');
-});
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('Feedback Engine service running on port 3000');
+    });
+}
+
+module.exports = app;

@@ -1,5 +1,33 @@
+jest.mock('mongoose', () => {
+  const actual = jest.requireActual('mongoose');
+  return {
+    ...actual,
+    connect: jest.fn(() => Promise.resolve()),
+    model: jest.fn(() => {
+      return function(data) {
+        return {
+          ...data,
+          save: jest.fn().mockResolvedValue({ ...data })
+        };
+      };
+    })
+  };
+});
+jest.mock('axios', () => ({
+  post: jest.fn((url) => {
+    if (url && url.includes('deploy-swarm')) {
+      return Promise.resolve({ data: { swarmId: 'swarm-123', assigned: true, traceId: 'TRACE-001', lineage: ['MG-001'], execution: { status: 'dispatched', taskId: 'SG-001', traceId: 'TRACE-001', lineage: ['MG-001'] } } });
+    }
+    if (url && url.includes('/dispatch')) {
+      return Promise.resolve({ data: { status: 'dispatched', taskId: 'SG-001', traceId: 'TRACE-001', lineage: ['MG-001'] } });
+    }
+    return Promise.resolve({ data: { status: 'mocked', swarmId: 'swarm-123', assigned: true, taskId: 'SG-001', traceId: 'TRACE-001', lineage: ['MG-001'] } });
+  })
+}));
+
 const request = require('supertest');
 const express = require('express');
+
 const mgtlApp = require('../src/index');
 const swarmApp = require('../../swarm-manager/src/index');
 const execApp = require('../../execution-engine/src/index');
@@ -39,11 +67,16 @@ describe('A2 Integration Flow', () => {
     // Call MGTL+ to translate goal
     const mgtlRes = await request(mgtlApp).post('/translate-goal').send(goal);
     expect(mgtlRes.statusCode).toBe(200);
-    expect(mgtlRes.body.subGoals).toBeDefined();
+    expect(Array.isArray(mgtlRes.body.subGoals)).toBe(true);
+    expect(mgtlRes.body.subGoals.length).toBeGreaterThan(0);
+    expect(Array.isArray(mgtlRes.body.swarmResponses)).toBe(true);
+    expect(mgtlRes.body.status).toBe('created');
     // Simulate Swarm Manager and Execution Engine by directly calling their endpoints
     for (const sg of mgtlRes.body.subGoals) {
       const swarmRes = await request(swarmApp).post('/deploy-swarm').send({ subGoalEnvelope: sg });
       expect(swarmRes.statusCode).toBe(200);
+      expect(swarmRes.body.swarmId).toBeDefined();
+      expect(swarmRes.body.assigned).toBe(true);
       expect(swarmRes.body.execution).toBeDefined();
       const execRes = await request(execApp).post('/dispatch').send({ subGoalEnvelope: sg });
       expect(execRes.statusCode).toBe(200);

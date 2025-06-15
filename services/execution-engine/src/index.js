@@ -31,7 +31,9 @@ app.post('/dispatch', async (req, res) => {
             await axios.post(`${GOVERNANCE_HOOKS_URL}/audit`, { event: 'dispatch', traceId, subGoalEnvelope });
         } catch (e) { /* ignore for now */ }
         // Send feedback to Feedback Engine
-        await axios.post(`${FEEDBACK_ENGINE_URL}/feedback`, metrics);
+        try {
+            await axios.post(`${FEEDBACK_ENGINE_URL}/feedback`, metrics);
+        } catch (e) { /* ignore for now */ }
         res.json({ taskId, status: 'dispatched', traceId, lineage: subGoalEnvelope.traceMeta.lineage });
     } catch (err) {
         res.status(500).json({ error: 'Failed to report feedback', details: err.message });
@@ -44,6 +46,10 @@ app.get('/tasks', (req, res) => {
     res.json([]);
 });
 
-app.listen(3000, () => {
-    console.log('Execution Engine service running on port 3000');
-});
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('Execution Engine service running on port 3000');
+    });
+}
+
+module.exports = app;

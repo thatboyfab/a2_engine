@@ -20,8 +20,10 @@ app.post('/compliance', (req, res) => {
     res.json({ status: 'checked', result: 'ok' });
 });
 
-app.listen(3000, () => {
-    console.log('Governance Hooks service running on port 3000');
-});
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('Governance Hooks service running on port 3000');
+    });
+}
 
 module.exports = app;

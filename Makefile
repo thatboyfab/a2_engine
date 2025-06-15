@@ -2,20 +2,10 @@ build:
 	docker-compose build
 
 test:
-	for d in ./services/* ./libs/*; do \
-		if [ -f $$d/package.json ]; then \
-			cd $$d && npm test || exit 1; \
-			cd - > /dev/null; \
-		fi; \
-	done
+	npm test
 
 lint:
-	for d in ./services/* ./libs/*; do \
-		if [ -f $$d/package.json ]; then \
-			cd $$d && npm run lint || exit 1; \
-			cd - > /dev/null; \
-		fi; \
-	done
+	npm run lint
 
 deploy:
 	docker-compose up -d
