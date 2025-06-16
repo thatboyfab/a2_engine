@@ -25,8 +25,54 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3002:3000"
+    environment:
+      - MONGO_URL=mongodb://role-registry-mongo:27017/role_registry
+    depends_on:
+      - role-registry-mongo
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  role-registry-mongo:
+    image: mongo:5
+    container_name: role-registry-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - role-registry-mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  feedback-engine:
+    build:
+      context: ./services/feedback-engine
+      dockerfile: Dockerfile
+    ports:
+      - "3006:3000"
+    environment:
+      - MONGO_URL=mongodb://feedback-engine-mongo:27017/feedback_engine
+    depends_on:
+      - feedback-engine-mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  feedback-engine-mongo:
+    image: mongo:5
+    container_name: feedback-engine-mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - feedback-engine-mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -61,18 +107,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3005:3000"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  feedback-engine:
-    build:
-      context: ./services/feedback-engine
-      dockerfile: Dockerfile
-    ports:
-      - "3006:3000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
       interval: 10s
@@ -114,6 +148,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+volumes:
+  role-registry-mongo-data:
+  feedback-engine-mongo-data:
 
 networks:
   default:

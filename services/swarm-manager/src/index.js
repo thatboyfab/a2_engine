@@ -27,15 +27,27 @@ app.post('/deploy-swarm', async (req, res) => {
     if (subGoalEnvelope.recursionMeta.costBudgetRemaining < MIN_BUDGET) {
         return res.status(400).json({ error: 'Insufficient budget' });
     }
-    // Enforce role/capability check
     if (!allowedCapabilities.includes(subGoalEnvelope.roleAssignment.capability) || !allowedRoles.includes(subGoalEnvelope.roleAssignment.roleId)) {
         return res.status(400).json({ error: 'Role or capability not allowed', subGoalEnvelope });
     }
     const traceId = subGoalEnvelope.traceMeta.traceId;
+    logWithTrace('Deploying swarm', traceId, { subGoalEnvelope });
     try {
         // Use environment variable for Execution Engine URL
         const execRes = await axios.post(`${EXEC_ENGINE_URL}/dispatch`, { subGoalEnvelope });
-        res.json({ swarmId: `swarm-${Math.random().toString(36).substr(2, 6)}`, assigned: true, traceId, lineage: subGoalEnvelope.traceMeta.lineage, execution: execRes.data });
+        // Add swarm to in-memory store
+        const swarm = {
+            swarmId: `swarm-${Math.random().toString(36).substr(2, 6)}`,
+            subGoalId: subGoalEnvelope.subGoalId,
+            roles: [subGoalEnvelope.roleAssignment.roleId],
+            agentCount: subGoalEnvelope.agentCount || 1,
+            status: 'active',
+            createdAt: new Date().toISOString(),
+            traceId,
+            lineage: subGoalEnvelope.traceMeta.lineage
+        };
+        addSwarm(swarm);
+        res.json({ ...swarm, assigned: true, execution: execRes.data });
     } catch (err) {
         res.status(500).json({ error: 'Failed to dispatch to Execution Engine', details: err.message });
     }
@@ -43,8 +55,7 @@ app.post('/deploy-swarm', async (req, res) => {
 
 // GET /swarms: List all swarms
 app.get('/swarms', (req, res) => {
-    // TODO: Return list of swarms
-    res.json([]);
+    res.json(listSwarms());
 });
 
 if (require.main === module) {

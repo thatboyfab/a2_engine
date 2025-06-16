@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.json());
 
-// Connect to MongoDB (mock connection string)
-mongoose.connect('mongodb://localhost:27017/role_registry', { useNewUrlParser: true, useUnifiedTopology: true });
+// Connect to MongoDB (use env var for containerized deployment)
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/role_registry', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Role schema and model
 const roleSchema = new mongoose.Schema({

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,50 +99,50 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// In-memory store for objectives and subgoals
-const objectives = [];
-const subgoals = [];
+const objectives = <span class="cstat-no" title="statement not covered" >[];</span>
+const subgoals = <span class="cstat-no" title="statement not covered" >[];</span>
 &nbsp;
-function normalizeAndValidateGoal(goal) {
+function <span class="fstat-no" title="function not covered" >normalizeAndValidateGoal(</span>goal) {
   // Basic validation and normalization per spec
-  if (!goal.goalId || !goal.description) {
-    return { error: 'Missing required fields: goalId, description' };
+<span class="cstat-no" title="statement not covered" >  if (!goal.goalId || !goal.description) {</span>
+<span class="cstat-no" title="statement not covered" >    return { error: 'Missing required fields: goalId, description' };</span>
   }
-  const normalized = {
+  const normalized = <span class="cstat-no" title="statement not covered" >{</span>
     objectiveId: goal.goalId,
     title: goal.title || goal.description.slice(0, 32),
     description: goal.description,
@@ -152,22 +152,22 @@ function normalizeAndValidateGoal(goal) {
     tags: goal.tags || [],
     createdAt: new Date().toISOString()
   };
-  return normalized;
+<span class="cstat-no" title="statement not covered" >  return normalized;</span>
 }
 &nbsp;
-function registerObjective(obj) {
-  objectives.push(obj);
+function <span class="fstat-no" title="function not covered" >registerObjective(</span>obj) {
+<span class="cstat-no" title="statement not covered" >  objectives.push(obj);</span>
 }
 &nbsp;
-function listObjectives() {
-  return objectives;
+function <span class="fstat-no" title="function not covered" >listObjectives(</span>) {
+<span class="cstat-no" title="statement not covered" >  return objectives;</span>
 }
 &nbsp;
-function resetObjectives() {
-  objectives.length = 0;
+function <span class="fstat-no" title="function not covered" >resetObjectives(</span>) {
+<span class="cstat-no" title="statement not covered" >  objectives.length = 0;</span>
 }
 &nbsp;
-module.exports = { normalizeAndValidateGoal, registerObjective, listObjectives, resetObjectives };
+<span class="cstat-no" title="statement not covered" >module.exports = { normalizeAndValidateGoal, registerObjective, listObjectives, resetObjectives };</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -175,7 +175,7 @@ module.exports = { normalizeAndValidateGoal, registerObjective, listObjectives, 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-16T10:07:24.696Z
+                at 2025-06-16T12:29:54.241Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
