@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const { logWithTrace } = require('../../../libs/common/src/index');
+const { addSwarm, listSwarms } = require('./swarmStore');
 const app = express();
 app.use(express.json());
 
@@ -31,7 +32,6 @@ app.post('/deploy-swarm', async (req, res) => {
         return res.status(400).json({ error: 'Role or capability not allowed', subGoalEnvelope });
     }
     const traceId = subGoalEnvelope.traceMeta.traceId;
-    logWithTrace('Deploying swarm', traceId, { subGoalEnvelope });
     try {
         // Use environment variable for Execution Engine URL
         const execRes = await axios.post(`${EXEC_ENGINE_URL}/dispatch`, { subGoalEnvelope });
