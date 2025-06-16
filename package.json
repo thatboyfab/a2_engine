@@ -12,11 +12,13 @@
     "webpack-cli": "^6.0.1"
   },
   "scripts": {
+    "build": "echo 'No build step defined'",
     "test": "jest --runInBand",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage",
-    "test:ci": "jest --ci --coverage --runInBand --reporters=default --reporters=jest-junit",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
-  }
+    "dev": "turbo run dev --parallel",
+    "dev:all": "turbo run dev --parallel",
+    "test:all": "turbo run test --parallel",
+    "lint:all": "turbo run lint --parallel"
+  },
+  "packageManager": "npm@8.19.4"
 }

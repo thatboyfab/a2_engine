@@ -1,0 +1,841 @@
+
+
+> test
+> jest --runInBand
+
+[1G[0K[1m[2mDetermining test suites to run...[22m[22m[999D[K
+[K[1A[999D[K
+[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:13.525Z][TRACE-henfbcmz] Created subgoals {
+      subGoals: [
+        {
+          subGoalId: 'SG-pb4hll',
+          description: 'Integration test goal (subgoal 1)',
+          intentTags: [Array],
+          canRecurse: true,
+          recursionMeta: [Object],
+          roleAssignment: [Object],
+          learningPath: [],
+          traceMeta: [Object]
+        },
+        {
+          subGoalId: 'SG-pf0h74',
+          description: 'Integration test goal (subgoal 2)',
+          intentTags: [Array],
+          canRecurse: true,
+          recursionMeta: [Object],
+          roleAssignment: [Object],
+          learningPath: [],
+          traceMeta: [Object]
+        }
+      ]
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:13.595Z][TRACE-henfbcmz] Deploying swarm {
+      subGoalEnvelope: {
+        subGoalId: 'SG-pb4hll',
+        description: 'Integration test goal (subgoal 1)',
+        intentTags: [ 'integration' ],
+        canRecurse: true,
+        recursionMeta: {
+          parentGoalId: 'MG-INT-001',
+          depth: 1,
+          maxDepth: 3,
+          costBudgetRemaining: 500
+        },
+        roleAssignment: {
+          roleId: 'ROLE-ANALYST',
+          capability: 'time_series',
+          confidence: 1
+        },
+        learningPath: [],
+        traceMeta: {
+          lineage: [Array],
+          traceId: 'TRACE-henfbcmz',
+          timestamp: '2025-06-16T21:14:13.525Z'
+        }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:13.628Z][TRACE-henfbcmz] Task dispatched {
+      subGoalEnvelope: {
+        subGoalId: 'SG-pb4hll',
+        description: 'Integration test goal (subgoal 1)',
+        intentTags: [ 'integration' ],
+        canRecurse: true,
+        recursionMeta: {
+          parentGoalId: 'MG-INT-001',
+          depth: 1,
+          maxDepth: 3,
+          costBudgetRemaining: 500
+        },
+        roleAssignment: {
+          roleId: 'ROLE-ANALYST',
+          capability: 'time_series',
+          confidence: 1
+        },
+        learningPath: [],
+        traceMeta: {
+          lineage: [Array],
+          traceId: 'TRACE-henfbcmz',
+          timestamp: '2025-06-16T21:14:13.525Z'
+        }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:13.750Z][TRACE-kqkjr7bw] Deploying swarm {
+      subGoalEnvelope: {
+        subGoalId: 'SG-pf0h74',
+        description: 'Integration test goal (subgoal 2)',
+        intentTags: [ 'integration' ],
+        canRecurse: true,
+        recursionMeta: {
+          parentGoalId: 'MG-INT-001',
+          depth: 1,
+          maxDepth: 3,
+          costBudgetRemaining: 500
+        },
+        roleAssignment: {
+          roleId: 'ROLE-ANALYST',
+          capability: 'time_series',
+          confidence: 1
+        },
+        learningPath: [],
+        traceMeta: {
+          lineage: [Array],
+          traceId: 'TRACE-kqkjr7bw',
+          timestamp: '2025-06-16T21:14:13.525Z'
+        }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:13.772Z][TRACE-kqkjr7bw] Task dispatched {
+      subGoalEnvelope: {
+        subGoalId: 'SG-pf0h74',
+        description: 'Integration test goal (subgoal 2)',
+        intentTags: [ 'integration' ],
+        canRecurse: true,
+        recursionMeta: {
+          parentGoalId: 'MG-INT-001',
+          depth: 1,
+          maxDepth: 3,
+          costBudgetRemaining: 500
+        },
+        roleAssignment: {
+          roleId: 'ROLE-ANALYST',
+          capability: 'time_series',
+          confidence: 1
+        },
+        learningPath: [],
+        traceMeta: {
+          lineage: [Array],
+          traceId: 'TRACE-kqkjr7bw',
+          timestamp: '2025-06-16T21:14:13.525Z'
+        }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/mgtl-plus/tests/[22m[1mintegration-flow.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A  A2 Integration Flow
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould process a goal end-to-end through MGTL+, Swarm Manager, Execution Engine, and Feedback Engine (578 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mintegration-flow.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:14.242Z][TRACE-epj4r96z] Created subgoals {
+      subGoals: [
+        {
+          subGoalId: 'SG-ris9fn',
+          description: 'Test goal (subgoal 1)',
+          intentTags: [Array],
+          canRecurse: true,
+          recursionMeta: [Object],
+          roleAssignment: [Object],
+          learningPath: [],
+          traceMeta: [Object]
+        },
+        {
+          subGoalId: 'SG-m9a9pb',
+          description: 'Test goal (subgoal 2)',
+          intentTags: [Array],
+          canRecurse: true,
+          recursionMeta: [Object],
+          roleAssignment: [Object],
+          learningPath: [],
+          traceMeta: [Object]
+        }
+      ]
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/mgtl-plus/tests/[22m[1mtranslate-goal.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A  POST /translate-goal
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould create valid SubGoalEnvelopes (23 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A  Policy enforcement
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould reject if max recursion depth is reached (10 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould reject if budget is too low (15 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...sts/[22m[1mtranslate-goal.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/swarm-manager/tests/[22m[1mdeploy-swarm.policy.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A  Swarm Manager Policy Enforcement
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould reject subgoals with excessive depth (79 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould reject subgoals with insufficient budget (13 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [1m...est.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/resource-allocator/tests/[22m[1mallocator.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A  Resource Allocator API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mallocates resources successfully (13 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns error for unknown resource type (9 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns error for insufficient resources (12 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mlists allocations (17 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...or/tests/[22m[1mallocator.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/objective-hub/tests/[22m[1mgoals.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A  Objective Hub API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mnormalizes and registers a valid goal (20 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns error for missing fields (10 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould normalize and return a mission goal (9 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ve-hub/tests/[22m[1mgoals.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:15.317Z][trace-1] Deploying swarm {
+      subGoalEnvelope: {
+        subGoalId: 'sg-1',
+        recursionMeta: { depth: 1, costBudgetRemaining: 200 },
+        roleAssignment: { capability: 'time_series', roleId: 'ROLE-ANALYST' },
+        traceMeta: { traceId: 'trace-1', lineage: [Array] },
+        agentCount: 2
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/swarm-manager/tests/[22m[1mdeploy-swarm.api.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A  Swarm Manager API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mdeploys a swarm and lists it (27 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns error for missing subGoalEnvelope (11 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...s/[22m[1mdeploy-swarm.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:15.495Z][TRACE-001] Deploying swarm {
+      subGoalEnvelope: {
+        subGoalId: 'SG-001',
+        description: 'Test subgoal',
+        intentTags: [ 'test' ],
+        canRecurse: true,
+        recursionMeta: {
+          parentGoalId: 'MG-001',
+          depth: 0,
+          maxDepth: 3,
+          costBudgetRemaining: 1000
+        },
+        roleAssignment: {
+          roleId: 'ROLE-ANALYST',
+          capability: 'time_series',
+          confidence: 1
+        },
+        learningPath: [],
+        traceMeta: {
+          lineage: [Array],
+          traceId: 'TRACE-001',
+          timestamp: '2025-06-16T21:14:15.489Z'
+        }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/swarm-manager/tests/[22m[1mdeploy-swarm.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A  POST /deploy-swarm
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould accept a SubGoalEnvelope and return a swarm assignment (14 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mdeploy-swarm.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:15.673Z][TRACE-001] Task dispatched {
+      subGoalEnvelope: {
+        subGoalId: 'SG-001',
+        description: 'Test subgoal',
+        intentTags: [ 'test' ],
+        canRecurse: true,
+        recursionMeta: {
+          parentGoalId: 'MG-001',
+          depth: 1,
+          maxDepth: 3,
+          costBudgetRemaining: 500
+        },
+        roleAssignment: {
+          roleId: 'ROLE-ANALYST',
+          capability: 'time_series',
+          confidence: 1
+        },
+        learningPath: [],
+        traceMeta: {
+          lineage: [Array],
+          traceId: 'TRACE-001',
+          timestamp: '2025-06-16T21:14:15.652Z'
+        }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/execution-engine/tests/[22m[1mdispatch.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A  POST /dispatch
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould accept a SubGoalEnvelope and return a dispatched status (31 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mdispatch.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:15.876Z][trace-1] Audit log received { traceId: 'trace-1', event: 'dispatch', details: { foo: 'bar' } }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:15.896Z][trace-2] Compliance check { traceId: 'trace-2', check: 'policy' }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/governance-hooks/tests/[22m[1maudit.api.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A  Governance Hooks API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2maccepts and lists audit logs (21 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns compliance check result (12 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ks/tests/[22m[1maudit.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/objective-hub/tests/[22m[1mgoals.api.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A  Objective Hub API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mnormalizes and registers a valid goal (19 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns error for missing fields (16 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ub/tests/[22m[1mgoals.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    Starting Capability Registry tests
+[2m[22m
+[2m      [2mat Object.log ([22m[2mservices/capability-registry/tests/capabilities.test.js[2m:6:29)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    Testing known capability
+[2m[22m
+[2m      [2mat Object.log ([22m[2mservices/capability-registry/tests/capabilities.test.js[2m:9:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    Response: {
+      capability: 'data_ingest',
+      preferredRoles: [ 'ROLE-DATA-GATHERER' ],
+      maxInstances: 5,
+      defaultBudget: 200
+    }
+[2m[22m
+[2m      [2mat Object.log ([22m[2mservices/capability-registry/tests/capabilities.test.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    Testing unknown capability
+[2m[22m
+[2m      [2mat Object.log ([22m[2mservices/capability-registry/tests/capabilities.test.js[2m:19:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    Response: { error: 'Not found' }
+[2m[22m
+[2m      [2mat Object.log ([22m[2mservices/capability-registry/tests/capabilities.test.js[2m:22:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    Finished Capability Registry tests
+[2m[22m
+[2m      [2mat Object.log ([22m[2mservices/capability-registry/tests/capabilities.test.js[2m:7:28)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/capability-registry/tests/[22m[1mcapabilities.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A  GET /capabilities/:capability
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould return preferred roles and policy for a known capability (14 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould return 404 for an unknown capability (13 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mcapabilities.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:16.539Z][trace-1] Task dispatched {
+      subGoalEnvelope: {
+        subGoalId: 'sg-1',
+        traceMeta: { traceId: 'trace-1', lineage: [Array] }
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/execution-engine/tests/[22m[1mtasks.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A  Execution Engine API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mdispatches a task and lists it (242 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mreturns error for missing subGoalEnvelope (7 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...engine/tests/[22m[1mtasks.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:17.035Z][NO-TRACE] Feedback received {
+      agentId: 'agent-001',
+      performance: 0.95,
+      timestamp: '2025-06-16T21:14:17.009Z',
+      save: [Function: mockConstructor] {
+        _isMockFunction: true,
+        getMockImplementation: [Function (anonymous)],
+        mock: [Getter/Setter],
+        mockClear: [Function (anonymous)],
+        mockReset: [Function (anonymous)],
+        mockRestore: [Function (anonymous)],
+        mockReturnValueOnce: [Function (anonymous)],
+        mockResolvedValueOnce: [Function (anonymous)],
+        mockRejectedValueOnce: [Function (anonymous)],
+        mockReturnValue: [Function (anonymous)],
+        mockResolvedValue: [Function (anonymous)],
+        mockRejectedValue: [Function (anonymous)],
+        mockImplementationOnce: [Function (anonymous)],
+        withImplementation: [Function: bound withImplementation],
+        mockImplementation: [Function (anonymous)],
+        mockReturnThis: [Function (anonymous)],
+        mockName: [Function (anonymous)],
+        getMockName: [Function (anonymous)]
+      }
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/feedback-engine/tests/[22m[1mfeedback.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A  POST /feedback
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould accept feedback and return the created feedback object (34 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ine/tests/[22m[1mfeedback.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A(node:104155) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A(node:104155) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/role-registry/tests/[22m[1mroles.api.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A  Role Registry API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mcreates and lists roles (137 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ry/tests/[22m[1mroles.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A(node:104155) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A(node:104155) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    [2025-06-16T21:14:18.151Z][NO-TRACE] Feedback received {
+      agentId: 'agent-1',
+      performance: 0.9,
+      timestamp: 2025-06-16T21:14:18.089Z,
+      _id: new ObjectId('6850892af76f9554b6c900aa'),
+      __v: 0
+    }
+[2m[22m
+[2m      [2mat log ([22m[2mlibs/common/src/index.js[2m:12:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/feedback-engine/tests/[22m[1mfeedback.api.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A  Feedback Engine API
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2msubmits and lists feedback (239 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...tests/[22m[1mfeedback.api.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mservices/execution-engine/tests/[22m[1mdispatch.policy.test.js[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A  Execution Engine Policy Enforcement
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A    [32m✓[39m [2mshould reject missing subGoalEnvelope (16 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m...ts/[22m[1mdispatch.policy.test.js[22m
+[K[1A[K[1A[999D[K[1m[2mRunning coverage on untested files...[22m[22m[999D[K-|---------|----------|---------|---------|-------------------
+ | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-|---------|----------|---------|---------|-------------------
+[32;1m[0m | [32;1m  84.74[0m | [32;1m   76.69[0m | [33;1m  63.49[0m | [32;1m  87.45[0m | [31;1m                 [0m 
+[32;1m [0m | [32;1m     75[0m | [31;1m   33.33[0m | [33;1m  66.66[0m | [32;1m     75[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m     75[0m | [31;1m   33.33[0m | [33;1m  66.66[0m | [32;1m     75[0m | [31;1m4                [0m 
+[31;1m [0m | [31;1m  33.33[0m | [31;1m      25[0m | [31;1m     20[0m | [31;1m  35.71[0m | [31;1m                 [0m 
+[31;1m  [0m | [31;1m      0[0m | [32;1m     100[0m | [31;1m      0[0m | [31;1m      0[0m | [31;1m14-27            [0m 
+[31;1m  [0m | [31;1m      0[0m | [31;1m       0[0m | [31;1m      0[0m | [31;1m      0[0m | [31;1m4-12             [0m 
+[32;1m  [0m | [32;1m  83.33[0m | [33;1m      50[0m | [32;1m    100[0m | [32;1m    100[0m | [33;1m48               [0m 
+[32;1m [0m | [32;1m     80[0m | [32;1m      75[0m | [31;1m  33.33[0m | [32;1m  84.61[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m     80[0m | [32;1m      75[0m | [31;1m  33.33[0m | [32;1m  84.61[0m | [31;1m30-31            [0m 
+[32;1m [0m | [32;1m  89.18[0m | [32;1m    87.5[0m | [32;1m  71.42[0m | [32;1m  91.42[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m   87.5[0m | [32;1m    87.5[0m | [33;1m     50[0m | [32;1m     90[0m | [31;1m47,57-58         [0m 
+[32;1m  [0m | [32;1m    100[0m | [32;1m     100[0m | [32;1m    100[0m | [32;1m    100[0m | [33;1m                 [0m 
+[32;1m [0m | [32;1m   86.2[0m | [32;1m   71.42[0m | [33;1m     50[0m | [32;1m  89.28[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m   86.2[0m | [32;1m   71.42[0m | [33;1m     50[0m | [32;1m  89.28[0m | [31;1m35,50-51         [0m 
+[32;1m [0m | [32;1m  88.88[0m | [33;1m      50[0m | [32;1m  77.77[0m | [32;1m   92.3[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m    100[0m | [32;1m     100[0m | [32;1m    100[0m | [32;1m    100[0m | [33;1m                 [0m 
+[32;1m  [0m | [32;1m  85.71[0m | [33;1m      50[0m | [33;1m     60[0m | [32;1m     90[0m | [31;1m30-31            [0m 
+[32;1m [0m | [32;1m  85.71[0m | [32;1m   73.68[0m | [33;1m  66.66[0m | [32;1m   87.5[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m  85.71[0m | [32;1m   73.68[0m | [33;1m  66.66[0m | [32;1m   87.5[0m | [31;1m61,67,80,85-86   [0m 
+[32;1m [0m | [32;1m  89.28[0m | [32;1m   93.75[0m | [32;1m     75[0m | [32;1m  92.59[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m  83.33[0m | [32;1m      75[0m | [33;1m     50[0m | [32;1m  88.23[0m | [31;1m25-26            [0m 
+[32;1m  [0m | [32;1m    100[0m | [32;1m     100[0m | [32;1m    100[0m | [32;1m    100[0m | [33;1m                 [0m 
+[32;1m [0m | [32;1m  91.66[0m | [32;1m   88.88[0m | [32;1m  71.42[0m | [32;1m  93.93[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m    100[0m | [32;1m     100[0m | [32;1m    100[0m | [32;1m    100[0m | [33;1m                 [0m 
+[32;1m  [0m | [32;1m  83.33[0m | [32;1m      75[0m | [33;1m     50[0m | [32;1m  88.23[0m | [31;1m25-26            [0m 
+[32;1m [0m | [32;1m     85[0m | [32;1m      75[0m | [33;1m     50[0m | [32;1m  89.47[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m     85[0m | [32;1m      75[0m | [33;1m     50[0m | [32;1m  89.47[0m | [31;1m34-35            [0m 
+[32;1m [0m | [32;1m  88.09[0m | [32;1m    87.5[0m | [32;1m  71.42[0m | [32;1m     90[0m | [31;1m                 [0m 
+[32;1m  [0m | [32;1m  86.48[0m | [32;1m    87.5[0m | [33;1m     50[0m | [32;1m  88.57[0m | [31;1m31,52,62-63      [0m 
+[32;1m  [0m | [32;1m    100[0m | [32;1m     100[0m | [32;1m    100[0m | [32;1m    100[0m | [33;1m                 [0m 
+-|---------|----------|---------|---------|-------------------
+[1m[31mJest: "global" coverage threshold for functions (70%) not met: 63.49%[39m[22m
+[1mTest Suites: [22m[1m[32m16 passed[39m[22m, 16 total
+[1mTests:       [22m[1m[32m29 passed[39m[22m, 29 total
+[1mSnapshots:   [22m0 total
+[1mTime:[22m        8.948 s
+[2mRan all test suites[22m[2m.[22m
+[1G[0K⠙[1G[0K

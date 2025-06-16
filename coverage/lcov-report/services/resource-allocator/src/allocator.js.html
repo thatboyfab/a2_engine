@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,60 +103,60 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// In-memory resource pools and allocations for rapid prototyping
-const resourcePools = <span class="cstat-no" title="statement not covered" >{</span>
+const resourcePools = {
   cpu: { total: 100, available: 100 },
   memory: { total: 1024, available: 1024 },
   budget: { total: 10000, available: 10000 }
 };
 &nbsp;
-const allocations = <span class="cstat-no" title="statement not covered" >[];</span>
-const quotas = <span class="cstat-no" title="statement not covered" >{};</span>
+const allocations = [];
+const quotas = {};
 &nbsp;
-function <span class="fstat-no" title="function not covered" >allocateResource(</span>agentId, resourceType, amountRequested, priority = <span class="branch-0 cbranch-no" title="branch not covered" >5)</span> {
-  const pool = <span class="cstat-no" title="statement not covered" >resourcePools[resourceType];</span>
-<span class="cstat-no" title="statement not covered" >  if (!pool) <span class="cstat-no" title="statement not covered" >return { error: 'Unknown resource type' };</span></span>
-<span class="cstat-no" title="statement not covered" >  if (amountRequested &gt; pool.available) <span class="cstat-no" title="statement not covered" >return { error: 'Insufficient resources' };</span></span>
-<span class="cstat-no" title="statement not covered" >  pool.available -= amountRequested;</span>
-  const allocation = <span class="cstat-no" title="statement not covered" >{</span>
+function allocateResource(agentId, resourceType, amountRequested, priority = 5) {
+  const pool = resourcePools[resourceType];
+  if (!pool) return { error: 'Unknown resource type' };
+  if (amountRequested &gt; pool.available) return { error: 'Insufficient resources' };
+  pool.available -= amountRequested;
+  const allocation = {
     allocationId: `alloc-${Date.now()}-${Math.floor(Math.random()*1000)}`,
     agentId,
     resourceType,
@@ -164,22 +164,22 @@ function <span class="fstat-no" title="function not covered" >allocateResource(<
     expiresAt: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
     priority
   };
-<span class="cstat-no" title="statement not covered" >  allocations.push(allocation);</span>
-<span class="cstat-no" title="statement not covered" >  return allocation;</span>
+  allocations.push(allocation);
+  return allocation;
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >listAllocations(</span>) {
-<span class="cstat-no" title="statement not covered" >  return allocations;</span>
+function listAllocations() {
+  return allocations;
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >resetPools(</span>) {
-<span class="cstat-no" title="statement not covered" >  resourcePools.cpu.available = resourcePools.cpu.total;</span>
-<span class="cstat-no" title="statement not covered" >  resourcePools.memory.available = resourcePools.memory.total;</span>
-<span class="cstat-no" title="statement not covered" >  resourcePools.budget.available = resourcePools.budget.total;</span>
-<span class="cstat-no" title="statement not covered" >  allocations.length = 0;</span>
+function resetPools() {
+  resourcePools.cpu.available = resourcePools.cpu.total;
+  resourcePools.memory.available = resourcePools.memory.total;
+  resourcePools.budget.available = resourcePools.budget.total;
+  allocations.length = 0;
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >module.exports = { resourcePools, allocations, allocateResource, listAllocations, resetPools };</span>
+module.exports = { resourcePools, allocations, allocateResource, listAllocations, resetPools };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -187,7 +187,7 @@ function <span class="fstat-no" title="function not covered" >resetPools(</span>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-16T12:29:54.241Z
+                at 2025-06-16T21:14:18.584Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-engine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feedback-engine
+  template:
+    metadata:
+      labels:
+        app: feedback-engine
+    spec:
+      containers:
+      - name: feedback-engine
+        image: feedback-engine:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: MONGO_URL
+          value: "mongodb://feedback-engine-mongo:27017/feedback_engine"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feedback-engine
+spec:
+  selector:
+    app: feedback-engine
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-engine-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feedback-engine-mongo
+  template:
+    metadata:
+      labels:
+        app: feedback-engine-mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:5
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-data
+          mountPath: /data/db
+      volumes:
+      - name: mongo-data
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feedback-engine-mongo
+spec:
+  selector:
+    app: feedback-engine-mongo
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
