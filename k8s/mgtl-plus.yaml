@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mgtl-plus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mgtl-plus
+  template:
+    metadata:
+      labels:
+        app: mgtl-plus
+    spec:
+      containers:
+        - name: mgtl-plus
+          image: mgtl-plus:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mgtl-plus
+spec:
+  selector:
+    app: mgtl-plus
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

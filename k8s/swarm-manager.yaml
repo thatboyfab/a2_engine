@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swarm-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swarm-manager
+  template:
+    metadata:
+      labels:
+        app: swarm-manager
+    spec:
+      containers:
+        - name: swarm-manager
+          image: swarm-manager:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: swarm-manager
+spec:
+  selector:
+    app: swarm-manager
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

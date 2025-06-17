@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capability-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capability-registry
+  template:
+    metadata:
+      labels:
+        app: capability-registry
+    spec:
+      containers:
+        - name: capability-registry
+          image: capability-registry:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: capability-registry
+spec:
+  selector:
+    app: capability-registry
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
