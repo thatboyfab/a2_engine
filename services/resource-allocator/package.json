@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "echo \"No build step\""
   },
   "dependencies": {
     "express": "^4.17.1",
