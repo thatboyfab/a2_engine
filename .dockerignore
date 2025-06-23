@@ -1,0 +1,12 @@
+node_modules
+coverage
+dist
+Dockerfile
+docker-compose.yml
+*.log
+.git
+.gitignore
+npm-debug.log
+.env
+.eslintrc.js
+.eslintcache
