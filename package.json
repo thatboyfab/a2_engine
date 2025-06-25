@@ -17,7 +17,6 @@
     "build": "echo 'No build step defined'",
     "test": "jest --runInBand",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "dev": "turbo run dev --parallel",
     "dev:all": "turbo run dev --parallel",
     "test:all": "turbo run test --parallel",
     "lint:all": "turbo run lint --parallel"
