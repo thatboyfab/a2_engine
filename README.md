@@ -58,6 +58,23 @@ const status = await getStatus();
 | ...                | ...                             | ...    | ...                        |
 > **Note:** For a full list, see each service's README or OpenAPI spec (if available).
 
+## Service Port Reference
+
+| Service              | Host Port |
+|----------------------|-----------|
+| mgtl-plus            | 3001      |
+| role-registry        | 3002      |
+| feedback-engine      | 3006      |
+| swarm-manager        | 3003      |
+| resource-allocator   | 3004      |
+| execution-engine     | 3005      |
+| capability-registry  | 3007      |
+| objective-hub        | 3008      |
+| governance-hooks     | 3009      |
+| web-vite (Vite+React)| 3011      |
+
+> All services are accessible at `http://localhost:<port>` by default when using Docker Compose.
+
 ## Testing & Validation
 - **Integration Tests:**
   - Located in each service's `tests/` directory.
@@ -156,3 +173,16 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgments
 Thanks to all contributors and the open-source community for their support and inspiration.
+
+## ACP Migration Preparation
+
+- **Access Control Policy (ACP) Integration:**
+  - A shared ACP middleware is now scaffolded at `libs/shared-libraries/src/acpMiddleware.js`.
+  - To prepare for ACP, import and use this middleware in each service's `src/index.js` on endpoints that require access control.
+  - Example usage:
+    ```js
+    const acpMiddleware = require('libs/shared-libraries/src/acpMiddleware');
+    app.post('/protected-endpoint', acpMiddleware, (req, res) => { /* ... */ });
+    ```
+  - The middleware is currently a no-op and ready for future ACP logic.
+  - Update each service as ACP requirements are finalized.

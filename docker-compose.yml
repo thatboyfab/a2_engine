@@ -149,6 +149,16 @@ services:
       timeout: 5s
       retries: 5
 
+  web-vite:
+    build:
+      context: ./web-vite
+      dockerfile: Dockerfile
+    ports:
+      - "3011:3011"
+    restart: unless-stopped
+    networks:
+      - default
+
 volumes:
   role-registry-mongo-data:
   feedback-engine-mongo-data:
