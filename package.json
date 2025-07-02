@@ -21,5 +21,8 @@
     "test:all": "turbo run test --parallel",
     "lint:all": "turbo run lint --parallel"
   },
-  "packageManager": "npm@8.19.4"
+  "packageManager": "npm@8.19.4",
+  "dependencies": {
+    "lucide-react": "^0.525.0"
+  }
 }
