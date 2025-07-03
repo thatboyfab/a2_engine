@@ -81,6 +81,43 @@ export function WebSocketProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!isConnected) return
 
-    const interval = setInterval(
-      () => {
-        // Simulate various types of real-time updates
+    const interval = setInterval(() => {
+      // Simulate various types of real-time updates
+      const types = [
+        "mission_update",
+        "agent_status",
+        "subgoal_progress",
+        "system_alert",
+        "trace_event"
+      ] as const;
+      const type = types[Math.floor(Math.random() * types.length)];
+      const payload = { info: `Simulated payload for ${type}` };
+      const message: WebSocketMessage = {
+        type,
+        payload,
+        timestamp: new Date().toISOString()
+      };
+      setLastMessage(message);
+      // Notify subscribers
+      const subscribers = subscribersRef.current.get(type);
+      if (subscribers) {
+        subscribers.forEach(cb => cb(payload));
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isConnected])
+
+  return (
+    <WebSocketContext.Provider
+      value={{ isConnected, connectionStatus, lastMessage, sendMessage, subscribe }}
+    >
+      {children}
+    </WebSocketContext.Provider>
+  );
+}
+
+export function useWebSocket() {
+  const ctx = useContext(WebSocketContext);
+  if (!ctx) throw new Error("useWebSocket must be used within a WebSocketProvider");
+  return ctx;
+}
