@@ -8,10 +8,21 @@ const staticPath = path.join(__dirname, 'dist');
 
 // Serve static files from Vite build
 app.use(express.static(staticPath));
+// Debug logging middleware
+app.use((req, res, next) => {
+  console.log(`[DEBUG] Incoming request: ${req.method} ${req.url}`);
+  next();
+});
 
 // Fallback to index.html for SPA routing
-app.get('*', (req, res) => {
-  res.sendFile(path.join(staticPath, 'index.html'));
+// Enhanced catch-all with error logging
+app.use('*', (req, res, next) => {
+  try {
+    res.sendFile(path.join(staticPath, 'index.html'));
+  } catch (err) {
+    console.error('[ERROR] Catch-all route error:', err);
+    next(err);
+  }
 });
 
 app.listen(PORT, () => {
