@@ -1,6 +1,11 @@
 // Minimal Node.js glue server for SSR or API proxy (if needed)
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import process from 'node:process';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 
 const PORT = process.env.PORT || 3011;
